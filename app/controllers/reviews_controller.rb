@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  # before_action :authorize, except: [:show, :index]
+  before_action :authorize, except: [:show, :index]
 
   def new
     @product = Product.find(params[:product_id])
