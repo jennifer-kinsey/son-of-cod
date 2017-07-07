@@ -1,4 +1,4 @@
 class Review < ActiveRecord::Base
-  belongs_to :products
+  belongs_to :product
   validates :comment, :rating, :presence => true
 end
