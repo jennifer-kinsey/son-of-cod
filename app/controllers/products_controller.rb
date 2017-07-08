@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :admin_authorize, except: [:show, :index]
-  
+
   def index
     @products = Product.all
   end
@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
       flash[:notice] = "Product successfully added!"
       redirect_to  products_path
     else
+      flash[:notice] = "Oops. Try again. You missed something."
       render :new
     end
   end
