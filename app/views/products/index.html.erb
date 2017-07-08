@@ -1,8 +1,12 @@
 <h1>Fresh Fish</h1>
 
+<% if current_user.admin == true %>
+  <p>There's more fish in the sea?</p>
+  <h3><%= link_to "Add a new Product", new_product_path %></h3>
+<% end %>
 
-  <% @products.each do |product| %>
-    <div>
-      <%= link_to product.name, product_path(product) %>
-    </div>
-  <% end %>
+<% @products.each do |product| %>
+  <div>
+    <%= link_to product.name, product_path(product) %>
+  </div>
+<% end %>

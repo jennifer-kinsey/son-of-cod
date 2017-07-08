@@ -21,7 +21,7 @@ User.create!(
   )
 end
 
-50.times do |index|
+20.times do |index|
   product = Product.create!(
     name: Faker::Lorem.word + " fish",
     date_caught: Faker::Date.between(8.days.ago, Date.today),
