@@ -1,17 +1,17 @@
 <% render "layouts/errors", :object => @product %>
 
 <%= form_for @product do |f| %>
-  <%= f.label :name, class: "form-control" %>
+  <%= f.label :name %>
   <%= f.text_field :name, class: "form-control" %>
-  <%= f.label :price, class: "form-control" %>
+  <%= f.label :price %>
   <%= f.number_field :price, class: "form-control" %>
-  <%= f.label :origin, class: "form-control" %>
+  <%= f.label :origin %>
   <%= f.text_field :origin, class: "form-control" %>
-  <%= f.label :date_caught, class: "form-control" %>
+  <%= f.label :date_caught %>
   <%= f.date_field :date_caught, class: "form-control" %>
-  <%= f.label :description, class: "form-control" %>
+  <%= f.label :description %>
   <%= f.text_field :description, class: "form-control" %>
-  <%= f.label :image, class: "form-control" %>
+  <%= f.label :image %>
   <%= f.text_field :image, class: "form-control" %> <br>
   <%= f.submit  %>
 <% end %>

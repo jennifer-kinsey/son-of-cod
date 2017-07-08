@@ -19,8 +19,10 @@
         <%= review.comment %> | left by <%= User.find(review.user_id).username %>
         <!-- Show edit/delete review to user iff it's their review AND not an admin -->
         <% if current_user == review.user_id  %>
-          | <%= link_to "Edit Review", edit_product_review_path(@product, review) %> |
-          <%= link_to "Delete Review", product_review_path(@product, review),
+          | <%= link_to "Edit Review", edit_product_review_path(@product, review) %>
+        <% end %>
+        <% if current_user == review.user_id || current_user.admin == true %>
+          | <%= link_to "Delete Review", product_review_path(@product, review),
             :data => {:confirm => "Are you sure?",
             :method => "delete"} %>
         <% end %>
