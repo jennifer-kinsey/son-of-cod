@@ -1,8 +1,11 @@
 <h1><%= @product.name %></h1>
-
+<img src="<%= @product.image %>" alt="<%= @product.name %>">
+<h3>Description: <%= @product.description %></h3>
 <h3>Date Caught: <%= @product.date_caught%></h3>
 <h3>Location: <%= @product.origin%></h3>
 <h3>Price: $<%= @product.price%>/lb</h3>
+
+<h2><%= link_to "Add new review", new_product_review_path(@product) %></h2>
 
 <% if @product.reviews.any? %>
   <h4>Here are the reviews for this product:</h4>
@@ -11,11 +14,14 @@
     <% @product.reviews.each do |review| %>
       <li>
         Rating: <%= review.rating %> |
-        <%= review.comment %> |
-        <%= link_to "Edit Review", edit_product_review_path(@product, review) %> |
-        <%= link_to "Delete Review", product_review_path(@product, review),
-                                 :data => {:confirm => "Are you sure?",
-                                                :method => "delete"} %>
+        <%= review.comment %> | left by <%= User.find(review.user_id).username %>
+        <!-- Show edit/delete review to user iff it's their review -->
+        <% if current_user == review.user_id %>
+          | <%= link_to "Edit Review", edit_product_review_path(@product, review) %> |
+          <%= link_to "Delete Review", product_review_path(@product, review),
+            :data => {:confirm => "Are you sure?",
+            :method => "delete"} %>
+        <% end %>
       </li>
     <% end %>
   </ul>
@@ -23,11 +29,13 @@
   <p>Be the first to leave a review.</p>
 <% end %>
 
-
-<p><%= link_to "Edit Product", edit_product_path(@product) %></p>
-<p><%= link_to "Delete Product", product_path(@product),
-                         :data => {:confirm => "You sure?",
+<!-- if admin show -->
+<% if current_user.admin == true %>
+  <p><%= link_to "Edit Product", edit_product_path(@product) %></p>
+  <p><%= link_to "Delete Product", product_path(@product),
+                           :data => {:confirm => "You sure?",
                                    :method => "delete"} %></p>
+ <% end %>
 
 
 

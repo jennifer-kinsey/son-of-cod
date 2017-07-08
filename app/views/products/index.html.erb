@@ -1,7 +1,8 @@
 <h1>Fresh Fish</h1>
 
-<ul>
+
   <% @products.each do |product| %>
-    <li><%= link_to product.name, product_path(product) %></li>
+    <div>
+      <%= link_to product.name, product_path(product) %>
+    </div>
   <% end %>
-</ul>

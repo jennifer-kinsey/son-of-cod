@@ -9,6 +9,7 @@
         2,
         2,
         2,
+        2,
         null,
         2,
         null,
@@ -291,6 +292,16 @@
         1,
         null
       ],
+      "/Users/kinsey/Desktop/son-of-cod/app/controllers/landing_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/kinsey/Desktop/son-of-cod/app/controllers/products_controller.rb": [
         1,
         1,
@@ -472,6 +483,7 @@
         1,
         1,
         1,
+        1,
         null,
         1,
         0,
@@ -490,6 +502,9 @@
       ],
       "/Users/kinsey/Desktop/son-of-cod/config/routes.rb": [
         1,
+        1,
+        null,
+        null,
         null,
         1,
         1,
@@ -520,8 +535,15 @@
         2,
         2,
         null
+      ],
+      "/Users/kinsey/Desktop/son-of-cod/spec/models/user_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        null
       ]
     },
-    "timestamp": 1499452287
+    "timestamp": 1499461881
   }
 }
