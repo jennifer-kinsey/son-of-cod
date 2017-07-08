@@ -1,9 +1,11 @@
 require 'faker'
 
 Product.destroy_all
+User.destroy_all
+Review.destroy_all
 
 User.create!(
-  email: "admin@email.com",
+  email: "admin2@email.com",
   username: "admin",
   password: "password",
   password_confirmation: "password",

@@ -5,7 +5,9 @@
 <h3>Location: <%= @product.origin%></h3>
 <h3>Price: $<%= @product.price%>/lb</h3>
 
-<h2><%= link_to "Add new review", new_product_review_path(@product) %></h2>
+<%if current_user && current_user.admin == false%>
+  <h2><%= link_to "Add new review", new_product_review_path(@product) %></h2>
+<% end %>
 
 <% if @product.reviews.any? %>
   <h4>Here are the reviews for this product:</h4>
@@ -15,8 +17,8 @@
       <li>
         Rating: <%= review.rating %> |
         <%= review.comment %> | left by <%= User.find(review.user_id).username %>
-        <!-- Show edit/delete review to user iff it's their review -->
-        <% if current_user == review.user_id %>
+        <!-- Show edit/delete review to user iff it's their review AND not an admin -->
+        <% if current_user == review.user_id  %>
           | <%= link_to "Edit Review", edit_product_review_path(@product, review) %> |
           <%= link_to "Delete Review", product_review_path(@product, review),
             :data => {:confirm => "Are you sure?",
@@ -30,7 +32,7 @@
 <% end %>
 
 <!-- if admin show -->
-<% if current_user.admin == true %>
+<% if current_user && current_user.admin == true %>
   <p><%= link_to "Edit Product", edit_product_path(@product) %></p>
   <p><%= link_to "Delete Product", product_path(@product),
                            :data => {:confirm => "You sure?",
