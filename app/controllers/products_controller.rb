@@ -34,6 +34,7 @@ class ProductsController < ApplicationController
       flash[:notice] = "Product successfully updated!"
       redirect_to products_path
     else
+      flash[:notice] = "Oops. Try again. You missed something."
       render :edit
     end
   end

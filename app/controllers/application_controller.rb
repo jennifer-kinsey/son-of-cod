@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_authorize
-    if current_user.admin == false
+    if !current_user || current_user.admin == false 
       flash[:alert] = "You aren't authorized to visit that page."
       redirect_to '/'
     end
