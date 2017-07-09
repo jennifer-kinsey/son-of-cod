@@ -5,7 +5,7 @@
 <h3>Location: <%= @product.origin%></h3>
 <h3>Price: $<%= @product.price%>/lb</h3>
 
-<%if current_user && current_user.admin == false%>
+<% if current_user && current_user.admin == false%>
   <h2><%= link_to "Add new review", new_product_review_path(@product) %></h2>
 <% end %>
 

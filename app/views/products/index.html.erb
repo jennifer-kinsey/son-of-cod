@@ -1,6 +1,6 @@
 <h1>Fresh Fish</h1>
 
-<% if current_user.admin == true %>
+<% if current_user && current_user.admin == true %>
   <p>There's more fish in the sea?</p>
   <h3><%= link_to "Add a new Product", new_product_path %></h3>
 <% end %>
