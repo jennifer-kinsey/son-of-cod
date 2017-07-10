@@ -1,3 +1,79 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.jumbotron {
+  background-color: #144cad;
+  padding-top: 0;
+}
+
+.jumbotron img {
+  display: block;
+  height: 250px;
+  width: auto;
+  margin: 0 auto;
+}
+
+.jumbotron > * {
+  margin-left: 10px;
+  color: white;
+}
+
+.nav {
+  float: left;
+}
+
+.signin {
+  float: right;
+}
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+.nav, .signin {
+  font-size: 25px;
+  a {
+    color: white;
+  }
+}
+
+.panel-body {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.panel-title {
+  font-size: 22px;
+}
+
+span{
+  font-weight: bold;
+}
+
+html {
+  position:relative;
+  min-height: 100%;
+}
+
+footer{
+  background-color: #144cad;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 40px;
+}
+
+.fish:last-child, .reviews:last-child {
+  padding-bottom: 150px;
+}

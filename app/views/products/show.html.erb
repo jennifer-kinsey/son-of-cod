@@ -1,46 +1,55 @@
-<h1><%= @product.name %></h1>
-<img src="<%= @product.image %>" alt="<%= @product.name %>">
-<h3>Description: <%= @product.description %></h3>
-<h3>Date Caught: <%= @product.date_caught%></h3>
-<h3>Location: <%= @product.origin%></h3>
-<h3>Price: $<%= @product.price%>/lb</h3>
+<!-- if admin show -->
+<% if current_user && current_user.admin == true %>
+<div class="alert alert-danger" role="alert">
+  <h2>Admins Only: Use Caution</h2>
+  <p><%= link_to "Edit Product", edit_product_path(@product) %></p>
+  <p><%= link_to "Delete Product", product_path(@product),
+           :data => {:confirm => "You sure?",
+                   :method => "delete"} %></p>
+<% end %>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h1 class="panel-title"><%= @product.name %></h1>
+  </div>
+  <div class="panel-body">
+    <img src="<%= @product.image %>" alt="<%= @product.name %>">
+    <h4><span>Description:</span> <%= @product.description %></h4>
+    <h4><span>Date Caught:</span> <%= @product.date_caught%></h4>
+    <h4><span>Location:</span> <%= @product.origin%></h4>
+    <h4><span>Price:</span> $<%= @product.price%>/lb</h4>
+  </div>
+</div>
 
 <% if current_user && current_user.admin == false%>
   <h2><%= link_to "Add new review", new_product_review_path(@product) %></h2>
 <% end %>
 
 <% if @product.reviews.any? %>
-  <h4>Here are the reviews for this product:</h4>
-
-  <ul>
+  <div class="reviews">
+    <h4>Here are the reviews for this product:</h4>
     <% @product.reviews.each do |review| %>
-      <li>
-        Rating: <%= review.rating %> |
-        <%= review.comment %> | left by <%= User.find(review.user_id).username %>
+      <div class="well well-lg">
+        <%= review.rating %> Stars by <%= User.find(review.user_id).username %><br>
+        <%= review.comment %><br>
         <!-- Show edit/delete review to user iff it's their review  -->
-        <% if current_user.id == review.user_id  %>
-          | <%= link_to "Edit Review", edit_product_review_path(@product, review) %>
+        <% if current_user != nil && current_user.id == review.user_id  %>
+          <%= link_to "Edit Review", edit_product_review_path(@product, review) %><br>
         <% end %>
-        <% if current_user == review.user_id || current_user.admin == true %>
-          | <%= link_to "Delete Review", product_review_path(@product, review),
-            :data => {:confirm => "Are you sure?",
-            :method => "delete"} %>
+        <% if current_user != nil %>
+          <% if current_user == review.user_id || current_user.admin == true %>
+            <%= link_to "Delete Review", product_review_path(@product, review),
+              :data => {:confirm => "Are you sure?",
+              :method => "delete"} %><br>
+          <% end %>
         <% end %>
-      </li>
+      </div>
     <% end %>
-  </ul>
 <% else %>
-  <p>Be the first to leave a review.</p>
+    <p>Be the first to leave a review.</p>
 <% end %>
-
-<!-- if admin show -->
-<% if current_user && current_user.admin == true %>
-  <p><%= link_to "Edit Product", edit_product_path(@product) %></p>
-  <p><%= link_to "Delete Product", product_path(@product),
-                           :data => {:confirm => "You sure?",
-                                   :method => "delete"} %></p>
- <% end %>
-
+  </div>
 
 
 <p><%= link_to "Return to products", products_path %></p>

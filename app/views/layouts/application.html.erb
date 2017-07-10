@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SonOfCod</title>
+    <title>Son Of Cod</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,15 +10,16 @@
 
   <body>
     <div class="jumbotron">
-      <h1>Son of Cod</h1>
-      <div class="signin">
+      <%= image_tag("logo.png", :alt => "Son of Cod Logo", class: "clearfix") %>
+      <!-- <h1>Son of Cod</h1> -->
+      <div class="signin clearfix">
         <% if current_user %>
         <%= current_user.email %> | <%= link_to "Sign out", '/signout' %>
         <% else %>
         <%= link_to "Sign up", 'signup' %> | <%= link_to "Sign in", '/signin' %>
         <% end %>
       </div>
-      <div class="nav">
+      <div class="nav clearfix">
         <%= link_to "Home", root_path %> |
         <%= link_to "Our Fish", products_path %>
       </div>
@@ -28,5 +29,7 @@
       <%= flash[:notice] %>
       <%= yield %>
     </div>
+    <footer> Copyright 2017</footer>
+
   </body>
 </html>
