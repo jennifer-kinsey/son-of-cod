@@ -21,11 +21,17 @@ This demonstrates use of authentication with authorization, use of testing gems 
 ## Screenshots
 
 ### Homepage
+Basic homepage with nav bar allowing guest to sign in/up and visit products pages. Unlogged in users will not be able to access signed in users pages.
+![home](https://user-images.githubusercontent.com/26371824/28008822-e3b84202-650d-11e7-9883-85f8b8b51574.png)
+
+### Admin
+Admin log in allows special functionality - such as adding a product - shown below.
+![admin](https://user-images.githubusercontent.com/26371824/28008820-e3b77e4e-650d-11e7-95e9-34de136b2a6f.png)
 
 
-## Products Page
-
-## Individual Product Page
+### User 
+Users can leave product reviews but are prohibited from admin functionality.
+![user](https://user-images.githubusercontent.com/26371824/28008821-e3b7ea78-650d-11e7-9b15-59f094e0711f.png)
 
 
 
