@@ -8,6 +8,12 @@ There are two user types: admins and users; plus visitors who are not logged in.
 * Users can:  all the above - and add reviews on fish
 * Admins can: all the above plus - add, edit, or delete fish(product), and delete user reviews
 
+You can test out a user's capability by signing up.
+However, to test out an admin you will need to log in as the database seeded admin.
+The very secure password and email for your local version will be:
+* email: "admin2@email.com"
+* password: "password"
+
 
 This demonstrates use of authentication with authorization, use of testing gems to streamline and ensure quality of testing, seeding data from faker gem, use of scopes, unit and integration testing, proper route convention, and use of success and error messages.
 
