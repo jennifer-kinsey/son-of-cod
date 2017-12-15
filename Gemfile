@@ -20,6 +20,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'faker', github: 'stympy/faker'
 gem 'bcrypt', '~> 3.1.7'
 gem 'newrelic_rpm'
+gem 'nokogiri', '~> 1.8.1'
 
 
 group :development, :test do
